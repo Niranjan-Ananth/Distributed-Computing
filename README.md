@@ -2,6 +2,7 @@
 Lab manual for the Distributed Computing lab at MSRIT.
 
 Q1: Implementation of concurrent echo client-server application (Using TCP)
+
 Q2: Implementation of concurrent echo client-server application (Using UDP)
 Q3: Implementation of concurrent day-time client-server application
 Q4: Implementation of iterative day-time client-server application. Calculate Request/Response Time using TCP/UDP.
