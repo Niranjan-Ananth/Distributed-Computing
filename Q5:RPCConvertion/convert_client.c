@@ -11,9 +11,9 @@ void
 convert_1(char *host, int n)
 {
 	CLIENT *clnt;
-	int  *result_1;
+	my_result  *result_1;
 	int  convert_hex_1_arg=n;
-	int  *result_2;
+	my_result  *result_2;
 	int  convert_oct_1_arg=n;
 
 #ifndef	DEBUG
@@ -25,17 +25,17 @@ convert_1(char *host, int n)
 #endif	/* DEBUG */
 
 	result_1 = convert_hex_1(&convert_hex_1_arg, clnt);
-	if (result_1 == (int *) NULL) {
+	if (result_1 == (my_result *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
 	else
-		printf("Hexadecimal: %x\n", *result_1);
+		printf("Hexadecimal: %s\n", result_1->data);
 	result_2 = convert_oct_1(&convert_oct_1_arg, clnt);
-	if (result_2 == (int *) NULL) {
+	if (result_2 == (my_result *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
 	else
-		printf("Octal: %o\n", *result_2);
+		printf("Octal: %s\n", result_2->data);
 #ifndef	DEBUG
 	clnt_destroy (clnt);
 #endif	 /* DEBUG */

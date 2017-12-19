@@ -6,34 +6,28 @@
 
 #include "convert.h"
 
-int *
+my_result *
 convert_hex_1_svc(int *argp, struct svc_req *rqstp)
 {
-	static int  result;
+	static my_result  result;
 
-	/*
-	 * insert server code here
-	 */
 	int n = *argp;
-	char buf[10];
-	snprintf(buf, 11, "%x", n);
-	printf("Hexadecimal: %s\n", buf);
-	result = strtol(buf, NULL, 16);
+	static char buffer[255];
+	snprintf(buffer, 255, "%x", n);
+	result.data = buffer;
+	printf("Hexadecimal: %s\n", buffer);
 	return &result;
 }
 
-int *
+my_result *
 convert_oct_1_svc(int *argp, struct svc_req *rqstp)
 {
-	static int  result;
+	static my_result  result;
 
-	/*
-	 * insert server code here
-	 */
 	int n = *argp;
-	char buf[10];
-	snprintf(buf, 11, "%o", n);
-	printf("Octal: %s\n", buf);
-	result = strtol(buf, NULL, 8);
+	static char buffer[255];
+	snprintf(buffer, 255, "%o", n);
+	result.data = buffer;
+	printf("Octal: %s\n\n", buffer);
 	return &result;
 }

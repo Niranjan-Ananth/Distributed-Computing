@@ -34,13 +34,13 @@ convert_1(struct svc_req *rqstp, register SVCXPRT *transp)
 
 	case convert_hex:
 		_xdr_argument = (xdrproc_t) xdr_int;
-		_xdr_result = (xdrproc_t) xdr_int;
+		_xdr_result = (xdrproc_t) xdr_my_result;
 		local = (char *(*)(char *, struct svc_req *)) convert_hex_1_svc;
 		break;
 
 	case convert_oct:
 		_xdr_argument = (xdrproc_t) xdr_int;
-		_xdr_result = (xdrproc_t) xdr_int;
+		_xdr_result = (xdrproc_t) xdr_my_result;
 		local = (char *(*)(char *, struct svc_req *)) convert_oct_1_svc;
 		break;
 

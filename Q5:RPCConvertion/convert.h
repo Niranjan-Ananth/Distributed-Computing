@@ -14,26 +14,41 @@ extern "C" {
 #endif
 
 
+struct my_result {
+	char *data;
+};
+typedef struct my_result my_result;
+
 #define CONVERT 0x2fffffff
 #define CONVERT_1 1
 
 #if defined(__STDC__) || defined(__cplusplus)
 #define convert_hex 1
-extern  int * convert_hex_1(int *, CLIENT *);
-extern  int * convert_hex_1_svc(int *, struct svc_req *);
+extern  my_result * convert_hex_1(int *, CLIENT *);
+extern  my_result * convert_hex_1_svc(int *, struct svc_req *);
 #define convert_oct 2
-extern  int * convert_oct_1(int *, CLIENT *);
-extern  int * convert_oct_1_svc(int *, struct svc_req *);
+extern  my_result * convert_oct_1(int *, CLIENT *);
+extern  my_result * convert_oct_1_svc(int *, struct svc_req *);
 extern int convert_1_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
 
 #else /* K&R C */
 #define convert_hex 1
-extern  int * convert_hex_1();
-extern  int * convert_hex_1_svc();
+extern  my_result * convert_hex_1();
+extern  my_result * convert_hex_1_svc();
 #define convert_oct 2
-extern  int * convert_oct_1();
-extern  int * convert_oct_1_svc();
+extern  my_result * convert_oct_1();
+extern  my_result * convert_oct_1_svc();
 extern int convert_1_freeresult ();
+#endif /* K&R C */
+
+/* the xdr functions */
+
+#if defined(__STDC__) || defined(__cplusplus)
+extern  bool_t xdr_my_result (XDR *, my_result*);
+
+#else /* K&R C */
+extern bool_t xdr_my_result ();
+
 #endif /* K&R C */
 
 #ifdef __cplusplus
