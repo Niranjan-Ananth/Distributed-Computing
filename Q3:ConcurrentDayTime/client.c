@@ -32,6 +32,7 @@ int main(int argc, char const *argv[]) {
 	//Check if the connection was successful
 	if(c==-1){
 		printf("Connection failed. Exiting program.\n");
+		exit(0);
 	}
 	//Receive the time from the server and display it
 	recv(sockfd, buffer, 100, 0);
